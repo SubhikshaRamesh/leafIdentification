@@ -1,0 +1,96 @@
+package com.example.leafidentificationsystem;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class LeafShow extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_leaf_show);
+        Intent obj2=getIntent();
+        String picturePath=obj2.getStringExtra("imgpath");
+
+        if(picturePath.contains("neem"))
+        {
+            Toast toast=Toast.makeText(getApplicationContext(),"Medicinal Properties Will be Shown",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            ImageView imageView = (ImageView) findViewById(R.id.imgView);
+            imageView.setImageResource(R.drawable.neemleaf);
+            TextView tv0 = (TextView)findViewById(R.id.leafdetail);
+            tv0.setText("NEEM LEAF");
+            TextView tv1 = (TextView)findViewById(R.id.botanicalname);
+            tv1.setText("Botanical Name : Azadirachta indica");
+            TextView tv2 = (TextView)findViewById(R.id.medicinalvalue);
+            tv2.setText("Anthelmintic, Antifungal, Antidiabetic, Antibacterial, Antiviral");
+
+
+
+
+        }
+        else if(picturePath.contains("tulsi"))
+        {
+            Toast toast=Toast.makeText(getApplicationContext(),"Medicinal Properties Will be Shown",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            ImageView imageView = (ImageView) findViewById(R.id.imgView);
+            imageView.setImageResource(R.drawable.tulsileaf);
+            TextView tv0 = (TextView)findViewById(R.id.leafdetail);
+            tv0.setText("TULSI LEAF");
+            TextView tv1 = (TextView)findViewById(R.id.botanicalname);
+            tv1.setText("Botanical Name : Ocimum tenuiflorum");
+            TextView tv2 = (TextView)findViewById(R.id.medicinalvalue);
+            tv2.setText("Anthelmintic, Antibacterial, Antiviral");
+        }
+        else if(picturePath.contains("omavalli"))
+        {
+            Toast toast=Toast.makeText(getApplicationContext(),"Medicinal Properties Will be Shown",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            ImageView imageView = (ImageView) findViewById(R.id.imgView);
+            imageView.setImageResource(R.drawable.omavalli);
+
+            TextView tv0 = (TextView)findViewById(R.id.leafdetail);
+            tv0.setText("OMAVALLI");
+            TextView tv1 = (TextView)findViewById(R.id.botanicalname);
+            tv1.setText("Botanical Name : Plectranthus amboinicus");
+            TextView tv2 = (TextView)findViewById(R.id.medicinalvalue);
+            tv2.setText("Relieves Cold, Caugh, Nasal Congestion, Sore Throat");
+        }
+        else if(picturePath.contains("betle"))
+        {
+            Toast toast=Toast.makeText(getApplicationContext(),"Medicinal Properties Will be Shown",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            ImageView imageView = (ImageView) findViewById(R.id.imgView);
+            imageView.setImageResource(R.drawable.omavalli);
+            TextView tv0 = (TextView)findViewById(R.id.leafdetail);
+            tv0.setText("Betle - Vetrillai");
+            TextView tv1 = (TextView)findViewById(R.id.botanicalname);
+            tv1.setText("Botanical Name : Piper betle");
+            TextView tv2 = (TextView)findViewById(R.id.medicinalvalue);
+            tv2.setText(" Analgesic, Helps in Digestion");
+        }
+        else
+        {
+            Toast toast=Toast.makeText(getApplicationContext(),"Cannot Classify - Select Another Picture",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            TextView tv0 = (TextView)findViewById(R.id.leafdetail);
+            tv0.setText("Cannot Classify");
+        }
+
+
+
+    }
+}
